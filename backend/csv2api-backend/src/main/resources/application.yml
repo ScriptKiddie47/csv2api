@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: csv2api-backend
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+       
