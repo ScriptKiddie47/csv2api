@@ -16,11 +16,14 @@ public class Csv2APIService {
     public String fetchCSVData() {
         try {
             List<String[]> lineByLine = readLineByLine();
-            for (String[] s1 : lineByLine) {
-                System.out.println();
-                for (String s2 : s1) {
-                    System.out.print(s2+ ",");
-                }
+            // for (String[] s1 : lineByLine) {
+            //     System.out.println();
+            //     for (String s2 : s1) {
+            //         System.out.print(s2+ ",");
+            //     }
+            // }
+            for(String s1 : lineByLine.get(0)){
+                System.out.println(s1);
             }
         } catch (Exception e) {
             e.printStackTrace();
