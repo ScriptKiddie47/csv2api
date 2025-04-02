@@ -14,3 +14,6 @@
     "java.import.gradle.java.home": "/home/sbala/Documents/Tools/jdk/jdk-17.0.0.1/"
 }
 ```
+
+# Architecture
+
