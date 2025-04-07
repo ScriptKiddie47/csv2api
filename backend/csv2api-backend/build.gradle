@@ -22,8 +22,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'com.opencsv:opencsv:5.10'
 	implementation 'com.h2database:h2:2.2.224'
-	implementation 'org.springframework.boot:spring-boot-starter-batch'
-	
+	implementation 'org.json:json:20250107'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }

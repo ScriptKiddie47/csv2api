@@ -17,3 +17,20 @@
 
 # Architecture
 
+1. `csv-records.json` is read to determine the number of csv file & their structure. Data is then read & pushed to DB.
+
+## Curl 
+
+1. getTableData
+
+```ps
+curl --request GET \
+  --url http://localhost:8080/getTableData
+```
+
+2. getCSVRecordList
+
+```ps
+curl --request GET \
+  --url http://localhost:8080/getCSVRecordList
+```

@@ -1,48 +1,29 @@
 package shrutosom.bala.csv2api.service;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.util.ArrayList;
 import java.util.List;
-import org.springframework.core.io.ClassPathResource;
+
+import org.json.JSONArray;
 import org.springframework.stereotype.Service;
 
-import com.opencsv.CSVReader;
+import shrutosom.bala.csv2api.model.CSVRecord;
+import shrutosom.bala.csv2api.repository.Csv2APIRepository;
+import shrutosom.bala.csv2api.utils.Csv2APIUtils;
 
 @Service
 public class Csv2APIService {
 
-    public String fetchCSVData() {
-        try {
-            List<String[]> lineByLine = readLineByLine();
-            // for (String[] s1 : lineByLine) {
-            //     System.out.println();
-            //     for (String s2 : s1) {
-            //         System.out.print(s2+ ",");
-            //     }
-            // }
-            for(String s1 : lineByLine.get(0)){
-                System.out.println(s1);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "Hello";
+    private final Csv2APIRepository csv2apiRepository;
+
+    public Csv2APIService(Csv2APIRepository csv2apiRepository) {
+        this.csv2apiRepository = csv2apiRepository;
     }
 
-    public List<String[]> readLineByLine() throws Exception {
-        InputStream inputStream = new ClassPathResource("csv-dump/customers-100.csv").getInputStream();
-        List<String[]> list = new ArrayList<>();
-        try (Reader reader = new InputStreamReader(inputStream)) {
-            try (CSVReader csvReader = new CSVReader(reader)) {
-                String[] line;
-                while ((line = csvReader.readNext()) != null) {
-                    list.add(line);
-                }
-            }
-        }
-        return list;
+    public List<CSVRecord> getCSVRecordList() {
+        return Csv2APIUtils.csvRecordList;
+    }
+
+    public JSONArray getTableData(){
+        return csv2apiRepository.fetchData();
     }
 
 }

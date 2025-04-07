@@ -2,27 +2,36 @@ package shrutosom.bala.csv2api.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import shrutosom.bala.csv2api.model.CSVRecord;
 import shrutosom.bala.csv2api.service.Csv2APIService;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import java.util.List;
 
+import org.json.JSONArray;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @RestController
 public class Csv2APIController {
 
     private final Csv2APIService service;
 
-	public Csv2APIController(Csv2APIService service) {
-		this.service = service;
-	}
-
-
-    //TODO: This should come from Spring Actuator
-    @GetMapping("/health")
-    public String health() {
-        service.fetchCSVData();
-        return "Up";
+    public Csv2APIController(Csv2APIService service) {
+        this.service = service;
     }
-    
+
+    @GetMapping("/getCSVRecordList")
+    public List<CSVRecord> getCSVRecordList() {
+        return service.getCSVRecordList();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/getTableData", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String getTableData() {
+        JSONArray tableData = service.getTableData();
+        return tableData.toString();
+
+    }
 
 }

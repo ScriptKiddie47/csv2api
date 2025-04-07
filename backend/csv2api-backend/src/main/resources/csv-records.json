@@ -1,0 +1,33 @@
+[
+    {
+        "csvFileName": "customers",
+        "fields": [
+            "Index",
+            "CustomerId",
+            "FirstName",
+            "LastName",
+            "Company",
+            "City",
+            "Country",
+            "Phone1",
+            "Phone2",
+            "Email",
+            "SubscriptionDate",
+            "Website"
+        ]
+    },
+    {
+        "csvFileName": "people",
+        "fields": [
+            "Index",
+            "UserId",
+            "FirstName",
+            "LastName",
+            "Sex",
+            "Email",
+            "Phone",
+            "Dateofbirth",
+            "Title"
+        ]
+    }
+]
