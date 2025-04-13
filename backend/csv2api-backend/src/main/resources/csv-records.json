@@ -1,6 +1,7 @@
 [
     {
         "csvFileName": "customers",
+        "numberOfRows": 100,
         "fields": [
             "Index",
             "CustomerId",
@@ -18,6 +19,7 @@
     },
     {
         "csvFileName": "people",
+        "numberOfRows": 10000,
         "fields": [
             "Index",
             "UserId",

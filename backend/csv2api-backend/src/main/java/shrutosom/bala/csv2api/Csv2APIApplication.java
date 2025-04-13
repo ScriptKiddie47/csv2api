@@ -21,6 +21,5 @@ public class Csv2APIApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		csv2apiRepository.createAndUpdateTables();
-	}
-
+	}  
 }

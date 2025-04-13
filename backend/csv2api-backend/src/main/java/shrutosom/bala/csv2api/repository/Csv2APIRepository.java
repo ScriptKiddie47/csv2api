@@ -70,6 +70,7 @@ public class Csv2APIRepository {
     }
 
     public void insertRows(CSVRecord csvRow) {
+        int rowCounter = 0;
         String fileSource = "csv-dump/" + csvRow.csvFileName() + ".csv";
         try {
             InputStream inputStream = new ClassPathResource(fileSource).getInputStream();
@@ -102,16 +103,20 @@ public class Csv2APIRepository {
                         builder.deleteCharAt(builder.length() - 1); // Remove last ","
                         builder.append(")");
                         jdbcTemplate.update(builder.toString());
+                        rowCounter++;
                     }
                 }
             }
+            LOGGER.info("Pushed {} rows to DB",rowCounter);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public JSONArray fetchData(){
-        String sqlQuery = "select * from customers limit 50";
+    public JSONArray fetchData(String query){
+        
+        String sqlQuery = "select * from " + query;
+        LOGGER.info("Querrying : {}",sqlQuery);
         List<Map<String, Object>> queryForList = jdbcTemplate.queryForList(sqlQuery);
         JSONArray ja = new JSONArray();
         for (Map<String,Object> map : queryForList) {

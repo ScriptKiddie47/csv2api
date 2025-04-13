@@ -32,5 +32,5 @@ curl --request GET \
 
 ```ps
 curl --request GET \
-  --url http://localhost:8080/getCSVRecordList
+  --url http://localhost:8080/getTableData/customers%20limit%202
 ```

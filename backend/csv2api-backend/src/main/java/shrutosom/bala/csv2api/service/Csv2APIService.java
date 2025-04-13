@@ -22,8 +22,8 @@ public class Csv2APIService {
         return Csv2APIUtils.csvRecordList;
     }
 
-    public JSONArray getTableData(){
-        return csv2apiRepository.fetchData();
+    public JSONArray getTableData(String query){
+        return csv2apiRepository.fetchData(query);
     }
 
 }
