@@ -25,12 +25,12 @@
 
 ```ps
 curl --request GET \
-  --url http://localhost:8080/getTableData
+  --url http://localhost:8080/getTableData/customers%20limit%202
 ```
 
 2. getCSVRecordList
 
 ```ps
 curl --request GET \
-  --url http://localhost:8080/getTableData/customers%20limit%202
+  --url http://localhost:8080/getCSVRecordList
 ```
