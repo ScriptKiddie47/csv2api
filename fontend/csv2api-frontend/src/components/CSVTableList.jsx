@@ -1,10 +1,11 @@
 import { use, useEffect, useState } from "react";
 import { Link } from "react-router";
 
-function CSVTables() {
+function CSVTableList() {
     const [tableNames, setTableNames] = useState([]);
 
     useEffect(() => {
+        console.log(`useEffect Triggered`)
         fetch(`http://localhost:8080/getCSVRecordList`)
             .then((res) => res.json())
             .then((res) => setTableNames(res));
@@ -27,4 +28,4 @@ function CSVTables() {
     );
 }
 
-export default CSVTables;
+export default CSVTableList;
